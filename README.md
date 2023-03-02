@@ -12,19 +12,9 @@
 This is a julia package created using `okatsn`'s preference, and this package is expected to be registered to [okatsn/OkRegistry](https://github.com/okatsn/OkRegistry) for CIs to work properly.
 
 !!! note Checklist
-    - [ ] Create an empty repository (namely, `https://github.com/okatsn/FSDatasets.jl.git`) on github, and push the local to origin. See [connecting to remote](#tips-for-connecting-to-remote).
-    - [ ] Add `ACCESS_OKREGISTRY` secret in the settings of this repository on Github, or delete both `register.yml` and `TagBot.yml` in `/.github/workflows/`. See [Auto-Registration](#auto-registration).
+    - [x] Create an empty repository (namely, `https://github.com/okatsn/FSDatasets.jl.git`) on github, and push the local to origin. See [connecting to remote](#tips-for-connecting-to-remote).
+    - [x] Add `ACCESS_OKREGISTRY` secret in the settings of this repository on Github, or delete both `register.yml` and `TagBot.yml` in `/.github/workflows/`. See [Auto-Registration](#auto-registration).
 
-
-### Go to [OkPkgTemplates](https://github.com/okatsn/OkPkgTemplates.jl) for more information
-- [How TagBot works and trouble shooting](https://github.com/okatsn/OkPkgTemplates.jl#tagbot)
-- [Use of Documenter](https://github.com/okatsn/OkPkgTemplates.jl#use-of-documenter)
-
-## References
-
-### Auto-Registration
-- You have to add `ACCESS_OKREGISTRY` to the secret under the remote repo (e.g., https://github.com/okatsn/FSDatasets.jl).
-- `ACCESS_OKREGISTRY` allows `CI.yml` to automatically register/update this package to [okatsn/OkRegistry](https://github.com/okatsn/OkRegistry).
 
 ### Test
 #### How to add a new test
