@@ -3,6 +3,9 @@ uuid = "711c5545-762e-4f29-8c0d-76adcc314cdc"
 authors = ["okatsn <okatsn@gmail.com> and contributors"]
 version = "0.0.3"
 
+[deps]
+SmallDatasetMaker = "7016d903-ac20-4882-9d97-75c232100024"
+
 [compat]
 julia = "1.6"
 
