@@ -4,6 +4,8 @@ authors = ["okatsn <okatsn@gmail.com> and contributors"]
 version = "0.0.3"
 
 [deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"
 SmallDatasetMaker = "7016d903-ac20-4882-9d97-75c232100024"
 
 [compat]
