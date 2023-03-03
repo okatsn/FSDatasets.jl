@@ -10,8 +10,11 @@ describe.(dfs)
 
 df1 = dfs[1]
 
+
 dflong = @chain df1 begin 
-    # stack(Cols(r"(SEP|FIM)"))
-    select()
-    transform(:variable => ByRow(s -> parse(Int, match(r"\d+\Z", s).match)) => "Moving window")
+    stack(Cols(r"(SEP|FIM)"))
+    # select()
+    transform(:variable => ByRow(s -> splitnamenumber(s, "_")) => ["SEPorFIM", "Moving window"])
+    select(Not(:variable))
+    describe
 end
