@@ -1,20 +1,17 @@
-using DataFrames, CSV, OkFiles, Chain
+using DataFrames, CSV, OkFiles, Chain, PrettyTables
 using Revise, FSDatasets, SmallDatasetMaker
 
 
 
-flist = filelist(r"FS\_FrictionCoeff\_fulltable\_s\d+\.csv", FSDatasets.carbdatadir())
 
+flist = filelist(r"FS\_FrictionCoeff\_fulltable\_s\d+\.csv", FSDatasets.carbdatadir())
 dfs = CSV.read.(flist, DataFrame)
+tags1 = getfield.(match.(r"s\d+(?=\.csv)", basename.(flist)), :match)
+
 describe.(dfs)
 
-df1 = dfs[1]
+longdfs = FC_FIM_SEP.(dfs .=> tags1, "rock type" => "carbonate")
+longdfs .|> describe .|> PrettyTables.pretty_table
 
+vcat(longdfs...)
 
-dflong = @chain df1 begin 
-    stack(Cols(r"(SEP|FIM)"))
-    # select()
-    transform(:variable => ByRow(s -> splitnamenumber(s, "_")) => ["SEPorFIM", "Moving window"])
-    select(Not(:variable))
-    describe
-end
