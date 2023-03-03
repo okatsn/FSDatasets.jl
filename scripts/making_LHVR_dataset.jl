@@ -45,3 +45,6 @@ SD = SourceData(rawpath,
                 "LHVRSHIVA",
                 "SHIVA",
                 "Friction experiments with FS analysis with instrument SHIVA")
+
+compress_save!(FSDatasets, SD)
+create_empty_table(FSDatasets) # CHECKPOINT: a lack of method here
