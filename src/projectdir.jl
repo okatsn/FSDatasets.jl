@@ -1,5 +1,5 @@
 
 # Directories for the dataset-creating stage; do not export any of them.
-rawdatadir(args...) = projectdir("data", "raw")
-carbdatadir(args...) = rawdatadir("Carbonate_Elena_21")
-silidatadir(args...) = rawdatadir("Silicate_LiWei_21")
+rawdatadir(args...) = projectdir("data", "raw", args...)
+carbdatadir(args...) = rawdatadir("Carbonate_Elena_21", args...)
+silidatadir(args...) = rawdatadir("Silicate_LiWei_21", args...)
