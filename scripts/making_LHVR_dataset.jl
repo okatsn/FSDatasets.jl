@@ -13,5 +13,35 @@ describe.(dfs)
 longdfs = FC_FIM_SEP.(dfs .=> tags1, "rock type" => "carbonate")
 longdfs .|> describe .|> PrettyTables.pretty_table
 
-vcat(longdfs...)
+dfcarb = vcat(longdfs...)
 
+# Test for the combined dataframe
+gdf = groupby(dfcarb, ["moving window", "trial"]) 
+for (i, tag) in enumerate(tags1)
+    for winsz in [300,500]
+        try 
+            df = gdf[(var"moving window"=Int(winsz), var"trial"=string(tag))]
+            @assert isequal(dfs[i][!, "SEP_$winsz"], df[!,"SEP"])
+        catch e
+            if isa(e, KeyError)
+                continue
+            else
+                rethrow(e)
+            end
+        end
+    end
+end
+
+df1 = dfs[1]
+gpk = [k for (k, v) in pairs(gdf)]
+
+dfcarb[!, "moving window"] |> unique
+nrow(dfcarb)
+nrow.(dfs)
+
+rawpath = CSV.write(carbdatadir("SHIVA_combined.csv"), dfcarb)
+
+SD = SourceData(rawpath,
+                "LHVRSHIVA",
+                "SHIVA",
+                "Friction experiments with FS analysis with instrument SHIVA")

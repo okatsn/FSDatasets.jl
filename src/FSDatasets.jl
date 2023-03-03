@@ -12,6 +12,7 @@ include("projectdir.jl")
 # # Add package LHVRSHIVA
 using Chain, DataFrames
 include("LHVRSHIVA/projectdir.jl")
+export carbdatadir, silidatadir
 include("LHVRSHIVA/splitcolumnname.jl")
 include("LHVRSHIVA/tableprocessing.jl")
 export FC_FIM_SEP, readfilebytrial
