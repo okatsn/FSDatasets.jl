@@ -3,4 +3,4 @@
 *.jl.mem
 /Manifest.toml
 /docs/build/
-/data/raw/
+# /data/raw/ # should take effect in main branch
