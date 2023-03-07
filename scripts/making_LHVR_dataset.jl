@@ -16,10 +16,10 @@ longdfs .|> describe .|> PrettyTables.pretty_table
 dfcarb = vcat(longdfs...)
 
 # Test for the combined dataframe
-gdf = groupby(dfcarb, ["moving window", "trial"]) 
+gdf = groupby(dfcarb, ["moving window", "trial"])
 for (i, tag) in enumerate(tags1)
     for winsz in [300,500]
-        try 
+        try
             df = gdf[(var"moving window"=Int(winsz), var"trial"=string(tag))]
             @assert isequal(dfs[i][!, "SEP_$winsz"], df[!,"SEP"])
         catch e
@@ -42,9 +42,12 @@ nrow.(dfs)
 rawpath = CSV.write(carbdatadir("SHIVA_combined.csv"), dfcarb)
 
 SD = SourceData(rawpath,
-                "LHVRSHIVA",
-                "SHIVA",
+                "LHVRSHIVA", # package
+                "SHIVA", # name
                 "Friction experiments with FS analysis with instrument SHIVA")
+SD.description = "See https://github.com/okatsn/FSFrictionExp_23.jl for more information"
+
+SD0 = deepcopy(SD)
+# create_empty_table(FSDatasets) # Do this only once
 
 compress_save!(FSDatasets, SD)
-create_empty_table(FSDatasets) # CHECKPOINT: a lack of method here
