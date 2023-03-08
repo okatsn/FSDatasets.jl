@@ -4,19 +4,19 @@ using Revise, FSDatasets, SmallDatasetMaker
 
 
 
-flist = filelist(r"FS\_FrictionCoeff\_fulltable\_s\d+\.csv", FSDatasets.carbdatadir())
+flist = filelist(r"FS\_FrictionCoeff\_fulltable\_LHVR\d+\.csv", FSDatasets.silidatadir())
 dfs = CSV.read.(flist, DataFrame)
-tags1 = getfield.(match.(r"s\d+(?=\.csv)", basename.(flist)), :match)
+tags1 = getfield.(match.(r"LHVR\d+(?=\.csv)", basename.(flist)), :match)
 
 describe.(dfs)
 
-longdfs = FC_FIM_SEP.(dfs .=> tags1, "rock type" => "carbonate")
+longdfs = FC_FIM_SEP.(dfs .=> tags1, "rock type" => "silicate")
 longdfs .|> describe .|> PrettyTables.pretty_table
 
-dfcarb = vcat(longdfs...)
+dfsili = vcat(longdfs...)
 
 # Test for the combined dataframe
-gdf = groupby(dfcarb, ["moving window", "trial"])
+gdf = groupby(dfsili, ["moving window", "trial"])
 for (i, tag) in enumerate(tags1)
     for winsz in [300,500]
         try
@@ -35,16 +35,16 @@ end
 df1 = dfs[1]
 gpk = [k for (k, v) in pairs(gdf)]
 
-dfcarb[!, "moving window"] |> unique
-nrow(dfcarb)
+dfsili[!, "moving window"] |> unique
+nrow(dfsili)
 nrow.(dfs)
 
-rawpath = CSV.write(carbdatadir("SHIVA_combined.csv"), dfcarb)
+rawpath = CSV.write(carbdatadir("LHVR_combined.csv"), dfsili)
 
 SD = SourceData(rawpath,
                 "LHVRSHIVA", # package
-                "SHIVA", # name
-                "Friction experiments with FS analysis with instrument SHIVA")
+                "LHVR", # name
+                "Friction experiments with FS analysis with instrument LHVR")
 SD.description = "See https://github.com/okatsn/FSFrictionExp_23.jl for more information"
 
 SD0 = deepcopy(SD)

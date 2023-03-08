@@ -1,2 +1,3 @@
 PackageName,Dataset,Title,Rows,Columns,Description,TimeStamp,RawData,ZippedData
 LHVRSHIVA,SHIVA,Friction experiments with FS analysis with instrument SHIVA,8202,9,See https://github.com/okatsn/FSFrictionExp_23.jl for more information,2023-03-07,data/raw/SHIVA_combined.csv,data/LHVRSHIVA/SHIVA.gz
+LHVRSHIVA,LHVR,Friction experiments with FS analysis with instrument LHVR,33579,8,See https://github.com/okatsn/FSFrictionExp_23.jl for more information,2023-03-08,data/raw/LHVR_combined.csv,data/LHVRSHIVA/LHVR.gz
