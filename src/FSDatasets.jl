@@ -1,9 +1,15 @@
 module FSDatasets
 
-# Write your package code here.
+
+# KEYNOTE:
+# - Remember to comment all the followings and related tests out before version release of FSDatasets, because they are only used in creating the dataset.
+# - Also remember to remove dependencies other than SmallDatasetMaker.
+
 using DrWatson
 include("projectdir.jl")
 
-include("splitcolumnname.jl")
-export splitnamenumber
+
+using SmallDatasetMaker # This is required. See `SmallDatasetMaker.datasets`.
+FSDatasets.dataset(package_name, dataset_name) = SmallDatasetMaker.dataset(FSDatasets,package_name, dataset_name)
+export dataset
 end
