@@ -12,4 +12,6 @@ include("projectdir.jl")
 using SmallDatasetMaker # This is required. See `SmallDatasetMaker.datasets`.
 FSDatasets.dataset(package_name, dataset_name) = SmallDatasetMaker.dataset(FSDatasets,package_name, dataset_name)
 export dataset
+
+FSDatasets.datasets() = SmallDatasetMaker.datasets(FSDatasets);
 end
