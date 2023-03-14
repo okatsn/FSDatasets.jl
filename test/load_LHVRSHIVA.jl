@@ -1,7 +1,10 @@
 @testset "load_LHVRSHIVA.jl" begin
     using FSDatasets, DataFrames
-    for dataset_name in ["SHIVA", "LHVR"]
-        df = dataset("LHVRSHIVA", dataset_name)
+
+    ref = FSDatasets.datasets()
+    @test isa(ref, DataFrame)
+    for (pkgnm, dsnm) in zip(ref.PackageName, ref.Dataset)
+        df = FSDatasets.dataset(pkgnm, dsnm)
         @test isa(df, DataFrame)
-    end
+    end # make sure all tests in the list can be loaded.
 end
