@@ -9,7 +9,7 @@
 
 ## Introduction
 
-## Dataset `LHVRSHIVA,SHIVA`
+## Package `LHVRSHIVA` of Dataset `SHIVA` and `LHVR`
 ### Description
 SHIVA_combined.csv: Fisher information Measure (FIM) and Shannon Entropy Power (SEP) of the timeseries of Friction coefficient in the rock shearing experiment of Spagnuolo et al. (2015) 
 LHVR_combined.csv: Fisher information Measure (FIM) and Shannon Entropy Power (SEP) of the timeseries of Friction coefficient in the rock shearing experiment of Hung et al. (2019) 
