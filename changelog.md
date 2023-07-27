@@ -21,3 +21,6 @@
 
 ## v0.1.0
 - Dataset `LHVRSHIVA`
+
+## v0.1.4
+- Remove useless dependencies
