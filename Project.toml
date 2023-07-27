@@ -1,7 +1,7 @@
 name = "FSDatasets"
 uuid = "711c5545-762e-4f29-8c0d-76adcc314cdc"
 authors = ["okatsn <okatsn@gmail.com> and contributors"]
-version = "0.1.4"
+version = "0.1.5"
 
 [deps]
 DrWatson = "634d3b9d-ee7a-5ddf-bec9-22491ea816e1"

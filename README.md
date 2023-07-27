@@ -9,4 +9,9 @@
 
 ## Introduction
 
+Documentation:
+
+[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://okatsn.github.io/FSDatasets.jl/stable)
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://okatsn.github.io/FSDatasets.jl/dev)
+
 This package is create on 2023-03-02.
