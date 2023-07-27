@@ -7,6 +7,8 @@
 
 <!-- Don't have any of your custom contents above; they won't occur if there is no citation. -->
 
+This package is registered at [okatsn/OkRegistry](https://github.com/okatsn/OkRegistry).
+
 ## Introduction
 
 Documentation:
