@@ -1,0 +1,4 @@
+[core]
+    remote = fsfrictionraw
+['remote "fsfrictionraw"']
+    url = gdrive://1BH9gXllKpo9LDfhqOXiLoOn5fWFQfLoC
