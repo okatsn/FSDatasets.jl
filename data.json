@@ -1,0 +1,6 @@
+{
+    "devcontainer_name": "FSDatasets",
+    "service": "devfsd",
+    "image": "imgfsd",
+    "docker_compose_name": "fsdatasets-jupyter-julia"
+}
